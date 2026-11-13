@@ -12,22 +12,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.databaseapp9.ui.theme.DatabaseApp9Theme
+import com.example.databaseapp9.room.Siswa
+import com.example.databaseapp9.room.SiswaDao
+import kotlinx.coroutines.flow.Flow
 
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            DatabaseApp9Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
-        }
-    }
+interface RepositoriSiswa {
+    fun getAllSiswaStream(): Flow<List<Siswa>>
+    suspend fun insertSiswa(siswa: Siswa)
+}
+
+class OfflineRepositoriSiswa(private val siswaDao: SiswaDao):RepositoriSiswa {
+    override fun getAllSiswaStream(): Flow<List<Siswa>> =
+        siswaDao.getAllSiswa()
+
+    override suspend fun insertSiswa(siswa: Siswa) = siswaDao.insert(siswa)
 }
 
 @Composable
