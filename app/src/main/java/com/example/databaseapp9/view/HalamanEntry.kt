@@ -30,7 +30,7 @@ import com.example.databaseapp9.uicontroller.DestinasiNavigasi
 import com.example.databaseapp9.uicontroller.SiswaTopAppBar
 import com.example.databaseapp9.viewmodel.DetailSiswa
 import com.example.databaseapp9.viewmodel.EntryViewModel
-import com.example.databaseapp9.viewmodel.provider.PenyediaViewModel
+import com.example.databaseapp9.viewmodel.PenyediaViewModel
 import com.example.databaseapp9.viewmodel.UIStateSiswa
 import kotlinx.coroutines.launch
 

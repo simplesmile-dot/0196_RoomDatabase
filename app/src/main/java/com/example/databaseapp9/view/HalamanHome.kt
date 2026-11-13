@@ -37,7 +37,7 @@ import com.example.databaseapp9.room.Siswa
 import com.example.databaseapp9.uicontroller.DestinasiHome
 import com.example.databaseapp9.uicontroller.SiswaTopAppBar
 import com.example.databaseapp9.viewmodel.HomeViewModel
-import com.example.databaseapp9.viewmodel.provider.PenyediaViewModel
+import com.example.databaseapp9.viewmodel.PenyediaViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
