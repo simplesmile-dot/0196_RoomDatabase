@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.databaseapp9.ui.theme.DatabaseApp9Theme
+import com.example.databaseapp9.uicontroller.SiswaApp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +28,7 @@ class MainActivity : ComponentActivity() {
                         MaterialTheme.colorScheme.background
                 )
                 {
+                    SiswaApp()
                 }
             }
         }
