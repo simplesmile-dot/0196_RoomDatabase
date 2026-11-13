@@ -1,17 +1,17 @@
 package com.example.databaseapp9.repositori
 
-import android.app.Application
-import com.example.databaseapp9.repositori.ContainerApp
-import com.example.databaseapp9.repositori.ContainerDataApp
+import com.example.databaseapp9.room.Siswa
+import com.example.databaseapp9.room.SiswaDao
+import kotlinx.coroutines.flow.Flow
 
-class AplikasiSiswa : Application() {
-    /**
-     * AppContainer instance digunakan oleh kelas-kelas lainnya untuk mendapatkan dependensi
-     */
-    lateinit var container: ContainerApp
+interface RepositoriSiswa {
+    fun getAllSiswaStream(): Flow<List<Siswa>>
+    suspend fun insertSiswa(siswa: Siswa)
+}
 
-    override fun onCreate() {
-        super.onCreate()
-        container = ContainerDataApp(this)
-    }
+class OfflineRepositoriSiswa(private val siswaDao: SiswaDao):RepositoriSiswa {
+    override fun getAllSiswaStream(): Flow<List<Siswa>> =
+        siswaDao.getAllSiswa()
+
+    override suspend fun insertSiswa(siswa: Siswa) = siswaDao.insert(siswa)
 }
